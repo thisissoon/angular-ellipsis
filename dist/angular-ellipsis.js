@@ -1,4 +1,4 @@
-/*! angular-ellipsis - v0.0.1 - 2016-05-25 */
+/*! angular-ellipsis - v0.0.2 - 2016-05-25 */
 'use strict';
 /**
  * Remove excess text and add ellipsis symbol
@@ -70,6 +70,7 @@ angular.module('sn.ellipsis', [
               return;
             }
 
+            testEl.style.maxHeight = 'none';
             testEl.style.height = 'auto';
             testEl.style.width = elementWidth + 'px';
 
