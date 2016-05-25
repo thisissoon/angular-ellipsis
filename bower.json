@@ -1,7 +1,7 @@
 {
   "name": "angular-ellipsis",
   "description": "Remove excess text and add ellipsis symbol to end of text before text overflows container",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "homepage": "https://github.com/thisissoon/angular-ellipsis",
   "license": "MIT",
   "private": false,

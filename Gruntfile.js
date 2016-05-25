@@ -394,7 +394,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-htmllint');
 
   grunt.registerTask('build', [
-    'clean:beforeBuild',
+    'clean',
     'concat',
     'uglify'
   ]);
@@ -434,11 +434,9 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('test:unit:production', [
-    'clean:dist',
     'ngconstant',
     'minify',
-    'jasmine:production',
-    'clean:dist'
+    'jasmine:production'
   ]);
 
   grunt.registerTask('test:e2e', [
@@ -448,8 +446,7 @@ module.exports = function (grunt) {
     'processhtml:e2e',
     'connect:servertest',
     'protractor_webdriver',
-    'protractor:dist',
-    'clean:afterTest'
+    'protractor:dist'
   ]);
 
   grunt.registerTask('default', ['build']);
