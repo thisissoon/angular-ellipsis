@@ -1,0 +1,8 @@
+{
+  "vendor": [
+    "./app/components/angular/angular.js"
+  ],
+  "application": [
+    "./app/js/ellipsis.js"
+  ]
+}

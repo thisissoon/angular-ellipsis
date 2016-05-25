@@ -1,0 +1,16 @@
+logs/*
+!.gitkeep
+node_modules/
+app/components/
+app/js/config/
+dist/
+docs/
+css/
+coverage/
+tmp
+.DS_Store
+.idea
+.grunt
+*.log
+_SpecRunner.html
+nohup.out
