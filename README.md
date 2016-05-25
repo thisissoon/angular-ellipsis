@@ -15,14 +15,20 @@ bower install angular-ellipsis-sn
 
 ## Usage
 
+```html
+<!-- 1. add angular-ellipsis file to your index.html file -->
+<script src="path/to/angular-ellipsis.min.js."></script>
+```
+
 ```js
-// 1. add module to your existing angular app
+// 2. add module to your existing angular app
 var myApp = angular.module('myApp', ['sn.ellipsis']);
+```
 
 ```html
-<!-- 2. add the sn-ellipsis directive to the element you wish to clip excess text from -->
+<!-- 3. add the sn-ellipsis directive to the element you wish to clip excess text from -->
 <p sn-ellipsis style="width: 300px; height: 200px;">
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur efficitur nisi justo, ac egestas turpis sagittis vitae. Integer eget elit urna. Donec at mauris a lectus pretium pharetra. Cras id ultrices sapien. In dictum auctor dolor, vel tempor risus consectetur a. Donec ante nisi, bibendum quis aliquam fringilla, mollis non odio. Sed vel aliquet ligula. Donec sit amet nunc ultricies, pellentesque dolor at, pretium mauris. Ut non sapien vitae justo pulvinar placerat nec vel ligula.
+  Text to be clipped
 </p>
 ```
 

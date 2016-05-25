@@ -2,6 +2,18 @@
 /**
  * Remove excess text and add ellipsis symbol
  * to end of text before text overflows container
+ * @example
+    // 1. add angular-ellipsis file to your index.html file
+    <script src="path/to/angular-ellipsis.min.js."></script>
+
+
+    // 2. add module to your existing angular app
+    var myApp = angular.module('myApp', ['sn.ellipsis']);
+
+    // 3. add the sn-ellipsis directive to the element you wish to clip excess text from
+    <p sn-ellipsis style="width: 300px; height: 200px;">
+      Text to be clipped
+    </p>
  * @module   sn.ellipsis
  * @main     sn.ellipsis
  * @author   SOON_
@@ -80,7 +92,7 @@ angular.module('sn.ellipsis', [
             }
 
             $element[0].innerHTML = text + ellipsis;
-            // $document[0].body.removeChild(testEl);
+            $document[0].body.removeChild(testEl);
           }, 100);
 
         };
