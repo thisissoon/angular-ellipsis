@@ -69,6 +69,7 @@ angular.module('sn.ellipsis', [
               return;
             }
 
+            testEl.style.maxHeight = 'none';
             testEl.style.height = 'auto';
             testEl.style.width = elementWidth + 'px';
 
