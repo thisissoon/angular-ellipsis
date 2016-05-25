@@ -17,11 +17,9 @@ describe('sn.ellipsis', function() {
       ellipsis = $injector.get('ellipsis');
 
       element =
-        '<div style="width: 300px;">'+
-          '<p style="line-height: 20px; display: inline-block; opacity: 0; height: 20px;" sn-ellipsis>'+
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'+
-          '</p>'+
-        '</div>';
+        '<p style="line-height: 20px; display: inline-block; opacity: 0; width: 300px; height: 20px; font-size: 16px;" sn-ellipsis>'+
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'+
+        '</p>';
 
       element = $compile(element)($scope);
       $scope.$digest();
@@ -35,23 +33,24 @@ describe('sn.ellipsis', function() {
     it('should replace excess text with ellipsis', function(){
       angular.element($document[0].body).append(element);
       $timeout.flush(100);
-      expect( angular.element( angular.element(element).find('p') ).html() ).toEqual('Lorem ipsum dolor sit amet, consectetur…');
+      expect( angular.element(element).html() ).not.toEqual('Lorem ipsum dolor sit amet, consectetur adipiscing elit.…');
+      expect( angular.element(element).html() ).toContain('…');
     });
 
     it('should remove event handler', function(){
       angular.element($document[0].body).append(element);
       $timeout.flush(100);
-      angular.element( angular.element(element).find('p') ).html('Lorem ipsum dolor sit amet, consectetur adipiscing elit.');
-      expect( angular.element( angular.element(element).find('p') ).html() ).toEqual('Lorem ipsum dolor sit amet, consectetur adipiscing elit.');
+      angular.element(element).html('Lorem ipsum dolor sit amet, consectetur adipiscing elit.');
+      expect( angular.element(element).html() ).toEqual('Lorem ipsum dolor sit amet, consectetur adipiscing elit.');
 
       $scope.$broadcast('$destroy');
       angular.element($window).triggerHandler('resize');
-      expect( angular.element( angular.element(element).find('p') ).html() ).toEqual('Lorem ipsum dolor sit amet, consectetur adipiscing elit.');
+      expect( angular.element(element).html() ).toEqual('Lorem ipsum dolor sit amet, consectetur adipiscing elit.');
 
     });
   });
 
-  describe('should crop text', function(){
+  describe('should NOT crop text', function(){
     beforeEach(inject(function (_$rootScope_, $compile, $injector) {
       $rootScope = _$rootScope_;
       $scope = $rootScope.$new();
@@ -60,9 +59,8 @@ describe('sn.ellipsis', function() {
       $document = $injector.get('$document');
 
       ellipsis = $injector.get('ellipsis');
-
-      element = '<p style="line-height: 20px; opacity: 0; height: 20px;" sn-ellipsis>'+
-                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'+
+      element = '<p style="line-height: 20px; height: 20px; width: 9999px; opacity: 0; font-size: 16px; display: inline-block;" sn-ellipsis>'+
+                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'+
                 '</p>';
 
       element = $compile(element)($scope);
@@ -78,6 +76,10 @@ describe('sn.ellipsis', function() {
       angular.element($document[0].body).append(element);
       $timeout.flush(100);
       expect(element.html()).toEqual('Lorem ipsum dolor sit amet, consectetur adipiscing elit.');
+
+      angular.element($window).triggerHandler('resize');
+      $timeout.flush(100);
+      expect(element.html()).toEqual('Lorem ipsum dolor sit amet, consectetur adipiscing elit.');
     });
   });
 
@@ -91,8 +93,8 @@ describe('sn.ellipsis', function() {
 
       ellipsis = $injector.get('ellipsis');
 
-      element = '<p style="line-height: 20px; opacity: 0; height: 0px;" sn-ellipsis>'+
-                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'+
+      element = '<p style="line-height: 20px; opacity: 0; height: 0px; font-size: 16px; display: inline-block;" sn-ellipsis>'+
+                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'+
                 '</p>';
 
       element = $compile(element)($scope);

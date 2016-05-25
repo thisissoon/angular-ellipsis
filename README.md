@@ -1,16 +1,32 @@
 # Angular Ellipsis
 
-| CircleCI |   Travis    |  Coveralls  |
-|----------|-------------|-------------|
-| [![Circle CI](https://circleci.com/gh/thisissoon/angular-ellipsis.svg?style=shield)](https://circleci.com/gh/thisissoon/angular-ellipsis) | [![Build Status](https://travis-ci.org/thisissoon/angular-ellipsis.svg?branch=master)](https://travis-ci.org/thisissoon/angular-ellipsis) | [![Coverage Status](https://coveralls.io/repos/thisissoon/angular-ellipsis/badge.svg)](https://coveralls.io/r/thisissoon/angular-ellipsis) |
 
-| Saucelabs |
-|-----------|
-| [![Sauce Test Status](https://saucelabs.com/browser-matrix/angular-ellipsis.svg)](https://saucelabs.com/u/angular-ellipsis) |
+[![Build Status](https://travis-ci.org/thisissoon/angular-ellipsis.svg?branch=master)](https://travis-ci.org/thisissoon/angular-ellipsis)
+[![Coverage Status](https://coveralls.io/repos/thisissoon/angular-ellipsis/badge.svg)](https://coveralls.io/r/thisissoon/angular-ellipsis)
 
 Remove excess text and add ellipsis symbol to end of text before text overflows container
 
-This project structure is based on the [angular-seed](https://github.com/angular/angular-seed) application skeleton for a typical [AngularJS](http://angularjs.org/) web app.
+
+## Install
+
+```
+bower install angular-ellipsis-sn
+```
+
+## Usage
+
+```js
+// 1. add module to your existing angular app
+var myApp = angular.module('myApp', ['sn.ellipsis']);
+
+```html
+<!-- 2. add the sn-ellipsis directive to the element you wish to clip excess text from -->
+<p sn-ellipsis style="width: 300px; height: 200px;">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur efficitur nisi justo, ac egestas turpis sagittis vitae. Integer eget elit urna. Donec at mauris a lectus pretium pharetra. Cras id ultrices sapien. In dictum auctor dolor, vel tempor risus consectetur a. Donec ante nisi, bibendum quis aliquam fringilla, mollis non odio. Sed vel aliquet ligula. Donec sit amet nunc ultricies, pellentesque dolor at, pretium mauris. Ut non sapien vitae justo pulvinar placerat nec vel ligula.
+</p>
+```
+
+This project structure is based on the [angular-start](https://github.com/angular/angular-start) application skeleton for a typical [AngularJS](http://angularjs.org/) web app.
 
 The project is preconfigured to install the Angular framework and a bunch of development and testing tools for instant web development gratification.
 

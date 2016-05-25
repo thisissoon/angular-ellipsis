@@ -39,7 +39,6 @@ angular.module('sn.ellipsis', [
          * @type     {String}
          */
         var orginalText = null;
-
         /**
          * Clip text to fit in element
          * @method clipText
@@ -81,7 +80,7 @@ angular.module('sn.ellipsis', [
             }
 
             $element[0].innerHTML = text + ellipsis;
-            $document[0].body.removeChild(testEl);
+            // $document[0].body.removeChild(testEl);
           }, 100);
 
         };

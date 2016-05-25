@@ -143,7 +143,9 @@ module.exports = function (grunt) {
 
     jasmine: {
       options: {
-        specs: ['./tests/unit/**/*.js'],
+        vendor: ['<%= config.vendorFiles %>'],
+        helpers:['app/components/angular-mocks/angular-mocks.js'],
+        specs: ['tests/unit/**/*.js'],
         keepRunner: true,
       },
       development: {
@@ -151,8 +153,6 @@ module.exports = function (grunt) {
           '<%= config.applicationFiles %>'
         ],
         options: {
-          vendor: ['<%= config.vendorFiles %>'],
-          helpers:['./app/components/angular-mocks/angular-mocks.js'],
           template: require('grunt-template-jasmine-istanbul'),
           templateOptions: {
             coverage: './coverage/coverage.json',

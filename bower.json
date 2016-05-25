@@ -5,6 +5,19 @@
   "homepage": "https://github.com/thisissoon/angular-ellipsis",
   "license": "MIT",
   "private": false,
+  "main": "dist/angular-skrollr.js",
+  "ignore": [
+    "app",
+    "tests",
+    ".bowerrc",
+    ".editorconfig",
+    ".gitignore",
+    ".jshintrc",
+    ".travis.yml",
+    "Gruntfile.js",
+    "package.json",
+    "scripts.json"
+  ],
   "dependencies": {
     "angular": "~1.5.3"
   },

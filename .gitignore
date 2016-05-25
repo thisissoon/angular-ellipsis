@@ -3,7 +3,6 @@ logs/*
 node_modules/
 app/components/
 app/js/config/
-dist/
 docs/
 css/
 coverage/
