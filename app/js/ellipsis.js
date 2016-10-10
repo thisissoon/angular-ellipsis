@@ -93,8 +93,19 @@ angular.module('sn.ellipsis', [
             }
 
             while (testEl.offsetHeight > elementHeight) {
+              // backup copy of text
+              var _text = text;
+
               text = text.split(' ');
               text = text.splice(0, (text.length-1)).join(' ');
+
+              // if text is now empty, it means a space char wasn't found
+              // (typically in CN or JP strings) - fall back to per-character
+              // trimming strategy
+              if (text === '') {
+                text = _text.slice(0, -1);
+              }
+
               testEl.innerHTML = text + ellipsis;
             }
 
