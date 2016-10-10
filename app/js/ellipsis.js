@@ -73,6 +73,12 @@ angular.module('sn.ellipsis', [
             testEl.style.height = 'auto';
             testEl.style.width = elementWidth + 'px';
 
+            // apply computed font/padding/margin styles to ensure test element
+            // is properly comparable with its visible equivalent
+            testEl.style.fontSize = window.getComputedStyle($element[0]).fontSize;
+            testEl.style.padding = window.getComputedStyle($element[0]).padding;
+            testEl.style.margin = window.getComputedStyle($element[0]).margin;
+
             // hide test element
             testEl.style.opacity = 0;
             testEl.style.position = 'absolute';
