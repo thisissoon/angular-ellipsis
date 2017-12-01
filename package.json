@@ -1,6 +1,6 @@
 {
   "name": "@thisissoon/angular-ellipsis",
-  "version": "1.0.0",
+  "version": "1.1.0-rc.0",
   "private": false,
   "description": "A simple lightweight library for Angular 2/4+ which removes excess text and add ellipsis symbol to end of text before text overflows container",
   "keywords": [
