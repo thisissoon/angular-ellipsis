@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.1.2"></a>
+## [1.1.2](https://github.com/thisissoon/angular-ellipsis/compare/v1.1.1...v1.1.2) (2018-01-22)
+
+
+### Bug Fixes
+
+* **ellipsis:** add support for dynamic content ([ff7eedf](https://github.com/thisissoon/angular-ellipsis/commit/ff7eedf))
+
+
+
 <a name="1.1.1"></a>
 ## [1.1.1](https://github.com/thisissoon/angular-ellipsis/compare/v1.1.0...v1.1.1) (2017-12-04)
 
