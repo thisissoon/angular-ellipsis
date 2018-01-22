@@ -1,4 +1,4 @@
-import { Directive, ElementRef, OnInit } from '@angular/core';
+import { AfterViewInit, Directive, ElementRef } from '@angular/core';
 
 /**
  * Removes excess text from element until it fits in elements
@@ -18,7 +18,7 @@ import { Directive, ElementRef, OnInit } from '@angular/core';
 @Directive({
   selector: '[snEllipsis]'
 })
-export class EllipsisDirective implements OnInit {
+export class EllipsisDirective implements AfterViewInit {
   /**
    * Ellipsis charater
    *
@@ -50,7 +50,7 @@ export class EllipsisDirective implements OnInit {
    *
    * @memberof EllipsisDirective
    */
-  public ngOnInit(): void {
+  public ngAfterViewInit(): void {
     this.clipText();
   }
   /**
