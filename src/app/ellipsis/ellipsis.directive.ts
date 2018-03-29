@@ -1,4 +1,5 @@
-import { AfterViewInit, Directive, ElementRef } from '@angular/core';
+import { AfterViewInit, Directive, ElementRef, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 /**
  * Removes excess text from element until it fits in elements
@@ -42,16 +43,23 @@ export class EllipsisDirective implements AfterViewInit {
   /**
    * Creates an instance of EllipsisDirective.
    * @param {ElementRef} el
+   * @param {any} platformId
    * @memberof EllipsisDirective
    */
-  constructor(private el: ElementRef) { }
+  constructor(
+    private el: ElementRef,
+    @Inject(PLATFORM_ID) private platformId
+  ) { }
   /**
    * Clip text on component initialisation
    *
    * @memberof EllipsisDirective
    */
   public ngAfterViewInit(): void {
-    this.clipText();
+    const isBrowser = isPlatformBrowser(this.platformId);
+    if (isBrowser) {
+      this.clipText();
+    }
   }
   /**
    * Removes character from end of `innerText`
