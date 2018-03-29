@@ -22,7 +22,6 @@ export class EllipsisDirective implements AfterViewInit {
   /**
    * Ellipsis charater
    *
-   * @private
    * @memberof EllipsisDirective
    */
   private ellipsisChar = '…';
@@ -30,9 +29,6 @@ export class EllipsisDirective implements AfterViewInit {
    * If true means the elements contents are larger
    * than the size of the element.
    *
-   * @readonly
-   * @private
-   * @type {boolean}
    * @memberof EllipsisDirective
    */
   private get hasOverflow(): boolean {
@@ -41,7 +37,7 @@ export class EllipsisDirective implements AfterViewInit {
   }
   /**
    * Creates an instance of EllipsisDirective.
-   * @param {ElementRef} el
+   *
    * @memberof EllipsisDirective
    */
   constructor(private el: ElementRef) { }
@@ -58,7 +54,6 @@ export class EllipsisDirective implements AfterViewInit {
    * until text fits in element and appends
    * a ellipsis symbol to the end.
    *
-   * @private
    * @memberof EllipsisDirective
    */
   private clipText(): void {

@@ -2,11 +2,10 @@
   "name": "@thisissoon/angular-ellipsis",
   "version": "1.1.2",
   "private": false,
-  "description": "A simple lightweight library for Angular 2/4+ which removes excess text and add ellipsis symbol to end of text before text overflows container",
+  "description": "A simple lightweight library for Angular which removes excess text and add ellipsis symbol to end of text before text overflows container",
   "keywords": [
     "angular",
-    "angular 2",
-    "angular 4",
+    "angular 5",
     "directive",
     "ellipsis",
     "text overflow",
@@ -22,8 +21,8 @@
     "url": "https://github.com/thisissoon/angular-ellipsis"
   },
   "engines": {
-    "node": ">= 6.9.0",
-    "npm": ">= 3.0.0"
+    "node": ">= 8.9.0",
+    "npm": ">= 5.6.0"
   },
   "scripts": {
     "ng": "ng",
@@ -39,7 +38,7 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "@angular/core": ">=4.0.0 <6.0.0 || >=4.0.0-beta <6.0.0",
+    "@angular/core": ">=5.0.0 <6.0.0 || >=5.0.0-beta <6.0.0",
     "rxjs": ">=5.0.0 <6.0.0"
   },
   "devDependencies": {
@@ -71,7 +70,7 @@
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
     "karma-spec-reporter": "0.0.31",
-    "ng-packagr": "^2.0.0-rc.4",
+    "ng-packagr": "^2.4.1",
     "protractor": "~5.1.2",
     "rxjs": "^5.5.2",
     "standard-version": "^4.2.0",
@@ -83,6 +82,12 @@
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "ngPackage": {
+    "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
+    "lib": {
+      "entryFile": "src/index.ts"
     }
   }
 }
