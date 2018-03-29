@@ -7,13 +7,10 @@ import { AfterViewInit, Directive, ElementRef } from '@angular/core';
  * be `hidden`
  *
  * @example
- * ```
+ * ```html
  * <p snEllipsis>Ullamco esse laborum</p>
  * ```
  *
- * @export
- * @class EllipsisDirective
- * @implements {OnInit}
  */
 @Directive({
   selector: '[snEllipsis]'
