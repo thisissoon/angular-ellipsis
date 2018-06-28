@@ -67,35 +67,62 @@ export class EllipsisDirective implements AfterViewInit {
 
     const el: HTMLElement = this.el.nativeElement;
     let words             = el.innerText.split(' ');
-    let text              = this.ellipsisChar;
-    let wordsCount        = 0;
-    let tailWordsCount    = words.length;
+
+    // We need to calculate biggest possible string without ellipsis char.
+    let text           = '';
+    let wordsCount     = 0;
+    let tailWordsCount = words.length;
 
     while(true) {
       let leftTailWordsCount = Math.ceil(tailWordsCount / 2);
-      let newText            = words.slice(0, wordsCount + leftTailWordsCount).join(' ') + this.ellipsisChar;
-
-      el.innerText = newText;
+      let newText            = words.slice(0, wordsCount + leftTailWordsCount).join(' ');
+      el.innerText           = newText;
 
       if (this.hasOverflow) {
-        if (leftTailWordsCount == 1) {
-          // We couldn't append the last word, text is right.
+        tailWordsCount = leftTailWordsCount;
+
+        if (tailWordsCount == 1) {
+          // We couldn't append the last word.
           el.innerText = text;
           break;
         }
 
-        tailWordsCount = leftTailWordsCount;
         continue;
       }
 
+      text           = newText;
+      wordsCount     += leftTailWordsCount;
       tailWordsCount -= leftTailWordsCount;
+
       if (tailWordsCount == 0) {
-        // We could append the last word, new text is right.
+        // We could append the last word.
         break;
       }
+    }
 
-      text       = newText;
-      wordsCount += leftTailWordsCount;
+    if (wordsCount == words.length) {
+      return;
+    }
+
+    // Original string was trimmed. Let's try to append ellipsis char.
+
+    while(true) {
+      let newText  = text + this.ellipsisChar;
+      el.innerText = newText;
+
+      if (this.hasOverflow) {
+        if (wordsCount == 0) {
+          // It is not possible to append ellipsis char, it is bigger than text itself.
+          el.innerText = text;
+          break;
+        }
+
+        wordsCount--;
+        text = words.slice(0, wordsCount).join(' ');
+        continue;
+      }
+
+      break;
     }
   }
 }
