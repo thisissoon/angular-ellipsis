@@ -55,17 +55,47 @@ export class EllipsisDirective implements AfterViewInit {
   }
   /**
    * Removes character from end of `innerText`
-   * until text fits in element and appends
+   * until words fits in element and appends
    * a ellipsis symbol to the end.
    *
    * @memberof EllipsisDirective
    */
   private clipText(): void {
+    if (!this.hasOverflow) {
+      return;
+    }
+
     const el: HTMLElement = this.el.nativeElement;
-    let text = el.innerText.split(' ');
-    while (this.hasOverflow) {
-      text = text.slice(0, -1);
-      el.innerText = `${text.join(' ')}${this.ellipsisChar}`;
+    let words             = el.innerText.split(' ');
+    let text              = this.ellipsisChar;
+    let wordsCount        = 0;
+    let tailWordsCount    = words.length;
+
+    while(true) {
+      let leftTailWordsCount = Math.ceil(tailWordsCount / 2);
+      let newText            = words.slice(0, wordsCount + leftTailWordsCount).join(' ') + this.ellipsisChar;
+
+      el.innerText = newText;
+
+      if (this.hasOverflow) {
+        if (leftTailWordsCount == 1) {
+          // We couldn't append the last word, text is right.
+          el.innerText = text;
+          break;
+        }
+
+        tailWordsCount = leftTailWordsCount;
+        continue;
+      }
+
+      tailWordsCount -= leftTailWordsCount;
+      if (tailWordsCount == 0) {
+        // We could append the last word, new text is right.
+        break;
+      }
+
+      text       = newText;
+      wordsCount += leftTailWordsCount;
     }
   }
 }
