@@ -5,7 +5,11 @@ export class AppPage {
     return browser.get('/');
   }
 
-  getParagraphText() {
-    return element(by.css('sn-root p')).getText();
+  getDefaultParagraphText() {
+    return element(by.css('sn-root .default')).getText();
+  }
+
+  getTooSmallParagraphText() {
+    return element(by.css('sn-root .too-small')).getText();
   }
 }
