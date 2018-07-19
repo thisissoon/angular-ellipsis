@@ -9,7 +9,8 @@ const trimmedContent = `Ullamco esse laborum dolor eiusmod laboris aliquip aute 
 const template = `
   <p class="static" snEllipsis>${baseContent}</p> \
   <p class="dynamic" snEllipsis>{{ dynamicContent }}</p> \
-  <p class="html" snEllipsis [innerHTML]="htmlContent"></p>
+  <p class="html" snEllipsis [innerHTML]="htmlContent"></p> \
+  <p class="too-small" snEllipsis>${baseContent}</p>
 `;
 
 @Component({
@@ -18,6 +19,7 @@ const template = `
   styles: [`
     :host { display: block; font-family: arial, sans-serif; }
     p { height: 200px; overflow: hidden; padding: 1rem; width: 200px; }
+    .too-small { font-size: 16px; height: 15px; line-height: 1; }
   `]
 })
 class TestComponent {
@@ -66,5 +68,11 @@ describe('EllipsisDirective', () => {
     expect(compiled.querySelector('.html').textContent)
       // tslint:disable-next-line:max-line-length
       .toEqual(`Ullamco esse laborum dolor eiusmod laboris aliquip aute aute aute. Ullamco velit ad laboris consequat. Deserunt ad reprehenderit cupidatat do labore esse. Occaecat nostrud mollit…`);
+  }));
+
+  it('should clip text and not loop infinitly', async(() => {
+    fixture.detectChanges();
+    expect(compiled.querySelector('.too-small').textContent)
+      .toEqual(`…`);
   }));
 });
