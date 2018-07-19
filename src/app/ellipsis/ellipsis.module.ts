@@ -11,4 +11,4 @@ import { EllipsisDirective } from './ellipsis.directive';
   declarations: [EllipsisDirective],
   exports: [EllipsisDirective]
 })
-export class EllipsisModule { }
+export class EllipsisModule {}

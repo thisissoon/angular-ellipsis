@@ -1,31 +1,28 @@
 # Angular Ellipsis
+
 [![Build Status][travis-badge]][travis-badge-url]
 [![Coverage Status][coveralls-badge]][coveralls-badge-url]
 [![Commitizen friendly][commitizen-badge]][commitizen]
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.4.
+[![code style: prettier][prettier-badge]][prettier-badge-url]
 
 A simple lightweight library for [Angular][angular] which removes excess text and add ellipsis symbol to end of text before text overflows container.
 
 This is a simple library for [Angular][angular], implemented in the [Angular Package Format v5.0](https://docs.google.com/document/d/1CZC2rcpxffTDfRDs6p1cfbmKNLA6x5O-NtkJglDaBVs/edit#heading=h.k0mh3o8u5hx).
-
 
 ## Install
 
 `npm i @thisissoon/angular-ellipsis --save`
 
 `app.module.ts`
+
 ```ts
 import { EllipsisModule } from '@thisissoon/angular-ellipsis';
 
 @NgModule({
-  imports: [
-    EllipsisModule
-  ]
+  imports: [EllipsisModule]
 })
-export class AppModule { }
+export class AppModule {}
 ```
-
 
 ## Example
 
@@ -36,7 +33,6 @@ export class AppModule { }
   ...
 </p>
 ```
-
 
 ## Development server
 
@@ -74,8 +70,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 [travis-badge-url]: https://travis-ci.org/thisissoon/angular-ellipsis
 [coveralls-badge]: https://coveralls.io/repos/github/thisissoon/angular-ellipsis/badge.svg?branch=master
 [coveralls-badge-url]: https://coveralls.io/github/thisissoon/angular-ellipsis?branch=master
+[prettier-badge]: https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=shield
+[prettier-badge-url]: https://github.com/prettier/prettier
 [angular]: https://angular.io/
-[commitizen]:http://commitizen.github.io/cz-cli/
-[commitizen-badge]:https://img.shields.io/badge/commitizen-friendly-brightgreen.svg
-[conventional-changelog]:https://github.com/conventional-changelog/conventional-changelog
-[standard-version]:https://github.com/conventional-changelog/standard-version
+[commitizen]: http://commitizen.github.io/cz-cli/
+[commitizen-badge]: https://img.shields.io/badge/commitizen-friendly-brightgreen.svg
+[conventional-changelog]: https://github.com/conventional-changelog/conventional-changelog
+[standard-version]: https://github.com/conventional-changelog/standard-version
