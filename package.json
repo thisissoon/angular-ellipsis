@@ -39,9 +39,9 @@
     "stylelint": "stylelint --syntax scss \"src/**/*.{css,scss}\"",
     "prettier": "prettier --config .prettierrc -l \"src/**/*.{ts,js,json,css,scss}\"",
     "packagr": "ng-packagr -p package.json",
+    "precommit": "npm run format:fix:staged && npm run lint",
     "release": "standard-version",
-    "postrelease": "npm run packagr",
-    "precommit": "npm run format:fix:staged && npm run lint"
+    "postrelease": "npm run packagr"
   },
   "peerDependencies": {
     "@angular/core": ">=5.0.0"
