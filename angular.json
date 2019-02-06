@@ -38,6 +38,9 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ]
+            },
+            "no-progress": {
+              "progress": false
             }
           }
         },
@@ -49,6 +52,9 @@
           "configurations": {
             "production": {
               "browserTarget": "angular-ellipsis:build:production"
+            },
+            "no-progress": {
+              "browserTarget": "angular-ellipsis:build:no-progress"
             }
           }
         },
@@ -69,6 +75,14 @@
             "styles": ["src/styles.scss"],
             "assets": ["src/assets", "src/favicon.ico"],
             "progress": false
+          },
+          "configurations": {
+            "ci": {
+              "browsers": "ChromeHeadless",
+              "codeCoverage": true,
+              "progress": false,
+              "watch": false
+            }
           }
         },
         "lint": {
@@ -89,7 +103,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "./e2e/protractor.conf.js",
-            "devServerTarget": "angular-ellipsis:serve"
+            "devServerTarget": "angular-ellipsis:serve:no-progress"
           }
         },
         "lint": {

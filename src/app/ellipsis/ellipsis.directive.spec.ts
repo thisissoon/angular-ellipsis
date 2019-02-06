@@ -33,8 +33,8 @@ const template = `
         height: 15px;
         line-height: 1;
       }
-    `
-  ]
+    `,
+  ],
 })
 class TestComponent {
   public dynamicContent: string;
@@ -48,7 +48,7 @@ describe('EllipsisDirective', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [TestComponent, EllipsisDirective]
+      declarations: [TestComponent, EllipsisDirective],
     }).compileComponents();
   }));
 
@@ -65,14 +65,14 @@ describe('EllipsisDirective', () => {
   it('should clip static text', async(() => {
     fixture.detectChanges();
     expect(compiled.querySelector('.static').textContent).toEqual(
-      trimmedContent
+      trimmedContent,
     );
   }));
 
   it('should clip dynamic text', async(() => {
     fixture.detectChanges();
     expect(compiled.querySelector('.dynamic').textContent).toEqual(
-      trimmedContent
+      trimmedContent,
     );
   }));
 
@@ -81,7 +81,7 @@ describe('EllipsisDirective', () => {
     expect(compiled.querySelector('.html').textContent)
       // tslint:disable-next-line:max-line-length
       .toEqual(
-        `Ullamco esse laborum dolor eiusmod laboris aliquip aute aute aute. Ullamco velit ad laboris consequat. Deserunt ad reprehenderit cupidatat do labore esse. Occaecat nostrud mollit…`
+        `Ullamco esse laborum dolor eiusmod laboris aliquip aute aute aute.Ullamco velit ad laboris consequat.Deserunt ad reprehenderit cupidatat do labore esse.Occaecat nostrud mollit…`,
       );
   }));
 
