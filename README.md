@@ -1,6 +1,6 @@
 # Angular Ellipsis
 
-[![Build Status][travis-badge]][travis-badge-url]
+[![Build Status][circle-badge]][circle-badge-url]
 [![Coverage Status][coveralls-badge]][coveralls-badge-url]
 [![Commitizen friendly][commitizen-badge]][commitizen]
 [![code style: prettier][prettier-badge]][prettier-badge-url]
@@ -19,7 +19,7 @@ This is a simple library for [Angular][angular], implemented in the [Angular Pac
 import { EllipsisModule } from '@thisissoon/angular-ellipsis';
 
 @NgModule({
-  imports: [EllipsisModule]
+  imports: [EllipsisModule],
 })
 export class AppModule {}
 ```
@@ -66,8 +66,8 @@ Run `npm run release` to create a new release. This will use [Standard Version][
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
-[travis-badge]: https://travis-ci.org/thisissoon/angular-ellipsis.svg?branch=master
-[travis-badge-url]: https://travis-ci.org/thisissoon/angular-ellipsis
+[circle-badge]: https://circleci.com/gh/thisissoon/angular-ellipsis.svg?style=shield
+[circle-badge-url]: https://circleci.com/gh/thisissoon/angular-ellipsis
 [coveralls-badge]: https://coveralls.io/repos/github/thisissoon/angular-ellipsis/badge.svg?branch=master
 [coveralls-badge-url]: https://coveralls.io/github/thisissoon/angular-ellipsis?branch=master
 [prettier-badge]: https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=shield
