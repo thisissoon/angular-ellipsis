@@ -31,18 +31,16 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
-    "lint": "npm run format:check && npm run lint:ts && npm run lint:scss",
+    "lint": "npm run stylelint && npm run nglint && npm run prettier",
     "e2e": "ng e2e",
     "coverage": "coveralls < coverage/lcov.info",
+    "lint:fix": "npm run stylelint -- --fix && npm run nglint -- --fix && npm run prettier -- --write",
+    "nglint": "ng lint",
+    "stylelint": "stylelint --syntax scss \"src/**/*.{css,scss}\"",
+    "prettier": "prettier --config .prettierrc -l \"src/**/*.{ts,js,json,css,scss}\"",
     "packagr": "ng-packagr -p package.json",
     "release": "standard-version",
     "postrelease": "npm run packagr",
-    "lint:ts": "ng lint",
-    "lint:ts:fix": "ng lint angular-ellipsis --fix && ng lint angular-ellipsis-e2e --fix",
-    "lint:scss": "stylelint --syntax scss \"src/**/*.scss\"",
-    "format:check": "prettier --config ./.prettierrc -l \"{src/{app,environments,assets}/**/*.{ts,json,css,scss},./*.{ts,js,json,css,scss}}\"",
-    "format:fix:staged": "pretty-quick --staged",
-    "format:fix:all": "npm run format:check -- --write && npm run lint:scss -- --fix && npm run lint:ts:fix",
     "precommit": "npm run format:fix:staged && npm run lint"
   },
   "peerDependencies": {
@@ -96,7 +94,10 @@
     "tslib": "^1.9.3",
     "tslint": "~5.12.1",
     "typescript": "3.2.4",
-    "zone.js": "^0.8.26"
+    "zone.js": "^0.8.26",
+    "lint-staged": "^7.3.0",
+    "stylelint-config-prettier": "^4.0.0",
+    "tslint-config-prettier": "^1.15.0"
   },
   "config": {
     "commitizen": {
@@ -108,5 +109,24 @@
     "lib": {
       "entryFile": "src/index.ts"
     }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.ts": [
+      "tslint --fix",
+      "git add"
+    ],
+    "src/**/*.{css,scss}": [
+      "stylelint --syntax scss --fix",
+      "git add"
+    ],
+    "src/**/*.{ts,js,json,css,scss}": [
+      "prettier --config .prettierrc --write",
+      "git add"
+    ]
   }
 }

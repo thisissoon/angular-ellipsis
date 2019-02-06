@@ -3,7 +3,7 @@ import {
   Directive,
   ElementRef,
   Inject,
-  PLATFORM_ID
+  PLATFORM_ID,
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
@@ -20,7 +20,7 @@ import { isPlatformBrowser } from '@angular/common';
  *
  */
 @Directive({
-  selector: '[snEllipsis]'
+  selector: '[snEllipsis]',
 })
 export class EllipsisDirective implements AfterViewInit {
   /**
@@ -46,7 +46,7 @@ export class EllipsisDirective implements AfterViewInit {
    */
   constructor(
     private el: ElementRef,
-    @Inject(PLATFORM_ID) private platformId
+    @Inject(PLATFORM_ID) private platformId,
   ) {}
   /**
    * Clip text on component initialisation
