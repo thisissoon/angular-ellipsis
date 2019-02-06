@@ -111,5 +111,8 @@
     "@schematics/angular:directive": {
       "prefix": "sn"
     }
+  },
+  "cli": {
+    "packageManager": "yarn"
   }
 }
